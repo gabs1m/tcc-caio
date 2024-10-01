@@ -1,45 +1,44 @@
 CREATE SCHEMA IF NOT EXISTS PeaceFun;
 USE PeaceFun;
+
 -- TABELA USUARIO
 CREATE TABLE IF NOT EXISTS PeaceFun.Usuario(
    idUsuario INT NOT NULL AUTO_INCREMENT,
    Nome VARCHAR(45) NOT NULL,
-   Data_nascimento DATE, 
+   DataNascimento DATE,
    Cpf VARCHAR(11) NOT NULL,
+   Genero VARCHAR(10) NOT NULL,
    Telefone VARCHAR(12) NOT NULL,
-   Email VARCHAR (45) NOT NULL,
+   Email VARCHAR(45) NOT NULL,
    Senha VARCHAR(20) NOT NULL,
    Imagem VARCHAR(100) NULL DEFAULT NULL,
-   Genero VARCHAR(10) NOT NULL,
    PRIMARY KEY (idUsuario)
 );
+
  -- TABELA ANFITRIAO
  CREATE TABLE IF NOT EXISTS PeaceFun.Anfitriao(
   idAnfitriao INT NOT NULL AUTO_INCREMENT,
   Nome VARCHAR(45) NOT NULL,
-  Documento_identidade VARCHAR(11) NOT NULL,
+  DocumentoIdentidade VARCHAR(11) NOT NULL,
   Telefone VARCHAR(12) NOT NULL,
   Email VARCHAR (45) NOT NULL,
   Senha VARCHAR(20) NOT NULL,
   Imagem VARCHAR(100) NULL DEFAULT NULL,
   PRIMARY KEY (idAnfitriao)
 );
+
 -- TABELA EVENTO
 CREATE TABLE IF NOT EXISTS PeaceFun.Evento(
    idEvento INT NOT NULL AUTO_INCREMENT,
-   anfitriao_id integer NOT NULL,
+   idAnfitriao integer NOT NULL,
    Nome VARCHAR(100) NOT NULL,
-   Imagem VARCHAR(100) NULL DEFAULT NULL,
+   Categoria VARCHAR (10) NOT NULL,
    Descricao TEXT NOT NULL,
    Bairro VARCHAR(45) NOT NULL,
-   Local_Evento VARCHAR (45) NOT NULL,
+   LocalEvento VARCHAR (45) NOT NULL,
    Rua VARCHAR(45) NOT NULL, 
-   Data_evento DATE NOT NULL,
-   Categoria VARCHAR (10) NOT NULL,
-   PRIMARY KEY (idEvento)
-   FOREIGN KEY (anfitriao_id) REFERENCES Anfitriao(idAnfitriao)
+   DataEvento DATE NOT NULL,
+   Imagem VARCHAR(100) NULL DEFAULT NULL,
+   PRIMARY KEY (idEvento),
+   FOREIGN KEY (idAnfitriao) REFERENCES Anfitriao(idAnfitriao)
 );
-
-
-
-

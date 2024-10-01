@@ -1,0 +1,9 @@
+{
+    "name": "tcc/peacefun",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "require": {}
+}
