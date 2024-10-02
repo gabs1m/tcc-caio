@@ -9,8 +9,12 @@ use App\Roteador;
 
 $roteador = new Roteador();
 
-$roteador->get('/', ViewController::class, 'index');
+$roteador->get('/', EventoController::class, 'buscarEventos');
 $roteador->get('/logout', ControllerPrincipal::class, 'logout');
+
+$roteador->get('/favoritos', ViewController::class, 'favoritos');
+$roteador->get('/favoritos/adicionar', ControllerPrincipal::class, 'adicionarFavorito');
+$roteador->get('/favoritos/limpar', ControllerPrincipal::class, 'limparFavoritos');
 
 $roteador->get('/usuarios', UsuarioController::class, 'buscarUsuarios');
 $roteador->get('/usuarios/login', ViewController::class, 'formLogin');
@@ -26,7 +30,7 @@ $roteador->get('/anfitrioes/cadastro', ViewController::class, 'formCadastro');
 $roteador->post('/anfitrioes/cadastro', AnfitriaoController::class, 'criarAnfitriao');
 $roteador->get('/anfitrioes/deletar', AnfitriaoController::class, 'deletarAnfitriao');
 
-$roteador->get('/eventos', EventoController::class, 'buscarEventos');
+//$roteador->get('/eventos', EventoController::class, 'buscarEventos');
 $roteador->get('/eventos/cadastro', ViewController::class, 'formCadastro');
 $roteador->post('/eventos/cadastro', EventoController::class, 'criarEvento');
 $roteador->get('/eventos/deletar', EventoController::class, 'deletarEvento');

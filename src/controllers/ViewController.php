@@ -26,6 +26,10 @@ class ViewController extends Controller{
       'id' => $_REQUEST['id']
     ]);
   }
+
+  public function favoritos(){
+    $this->renderizar('favoritos');
+  }
 }
 
 ?>

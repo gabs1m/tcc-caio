@@ -16,7 +16,7 @@
 
   <div class="campo" class="edit-inputs">
     <label>Data</label>
-    <input  name="Data"type="date" class="edit-date">
+    <input  name="Data" type="date" class="edit-date">
   </div><br>
   
   <div class="campo">

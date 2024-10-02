@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Classes;
+
 class Evento {
   private $idEvento;
   private $idAnfitriao;
@@ -12,15 +14,15 @@ class Evento {
   private $categoria;
   private $imagem;
 
-  const colunas = ['idEvento', 'idAnfitriao', 'Nome', 'Descricao', 'Data', 'Local', 'Bairro', 'Rua', 'Categoria', 'Imagem'];
+  const colunas = ['idEvento', 'idAnfitriao', 'Nome', 'Descricao', 'DataEvento', 'LocalEvento', 'Bairro', 'Rua', 'Categoria', 'Imagem'];
 
   public function __construct($idEvento, $idAnfitriao, $nome, $descricao, $data, $local, $rua, $bairro, $categoria, $imagem) {
     $this->setIdEvento($idEvento);
     $this->setIdAnfitriao($idAnfitriao);
     $this->setNome($nome);
     $this->setDescricao($descricao);
-    $this->setData($dataEvento);
-    $this->setLocal($localEvento);
+    $this->setData($data);
+    $this->setLocal($local);
     $this->setBairro($bairro);
     $this->setRua($rua);
     $this->setCategoria($categoria);

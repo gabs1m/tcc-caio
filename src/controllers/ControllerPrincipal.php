@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Classes\Usuario;
 use App\Classes\Anfitriao;
+use App\Classes\Evento;
 
 use App\Providers\SQLService;
 use App\Providers\HTTPService;
@@ -72,6 +73,66 @@ class ControllerPrincipal extends Controller {
 
   public function logout(){
     session_unset();
+    $this->redirecionar('/');
+  }
+
+  public function adicionarFavorito(){
+    try{
+      $sqlService = new SQLService();
+      $sqlService->conectar();
+      
+      $httpService = new HTTPService();
+      $request = $httpService->fetchGet();
+      $session = $httpService->fetchSession();
+
+      if(isset($session['favoritos'])){
+        $favoritos = $session['favoritos'];
+      } else {
+        $favoritos = [];
+      }
+
+      $operacao = 'findOne';
+      $tabela = 'evento';
+      $colunas = ['idEvento'];
+      $valores = [$request['id']];
+
+      $resposta = $sqlService->executar($operacao, $tabela, $colunas, $valores);
+      $linha = mysqli_fetch_assoc($resposta);
+
+      $evento = new Evento(
+        $linha['idEvento'],
+        $linha['idAnfitriao'],
+        $linha['Nome'],
+        $linha['Descricao'],
+        $linha['DataEvento'],
+        $linha['LocalEvento'],
+        $linha['Rua'],
+        $linha['Bairro'],
+        $linha['Categoria'],
+        $linha['Imagem']
+      );
+
+      if(!in_array($evento, $favoritos)){
+        array_push($favoritos, $evento);
+      }
+      
+
+      $httpService->setSession([
+        'favoritos' => $favoritos
+      ]);
+
+      $this->redirecionar('/favoritos');
+    } catch(Exception $erro){
+      echo $erro->getMessage();
+    }
+  }
+
+  public function limparFavoritos(){
+    $httpService = new HTTPService();
+    $httpService->setSession([
+      'favoritos' => []
+    ]);
+
     $this->redirecionar('/');
   }
 }

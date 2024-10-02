@@ -21,13 +21,15 @@ session_start();
     <?php endif; ?>
 
     <?php if(isset($_SESSION[$_SESSION['tipo']])): ?>
-    <form action="/logout" method="get">
-      <button type="submit">Sair</button>
-    </form>
+    <br><a href="/logout">Sair</a><br>
+    <a href="/eventos/cadastro">Cadastrar evento</a>
     <?php endif; ?>
 
     <div class="corpo">
-      <?php for($i = 0; $i < 10; $i++): include 'componentes/Card.php'; endfor; ?>
+      <?php if(isset($eventos)): 
+      foreach($eventos as $evento): include 'componentes/Card.php'; endforeach;
+      endif;
+      ?>
     </div>
 
     <?php include 'componentes/Rodape.php'; ?>

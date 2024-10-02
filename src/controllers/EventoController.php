@@ -7,8 +7,14 @@ use App\Providers\HTTPService;
 use App\Classes\Evento;
 use Exception;
 
+session_start();
+
 class EventoController extends Controller {
   public function criarEvento(){
+    if(empty($_SESSION['anfitrioes']->getIdAnfitriao())){
+      $this->redirecionar('/anfitrioes/login');
+    }
+
     try{
       $sqlService = new SQLService();
       $httpService = new HTTPService();
@@ -20,9 +26,11 @@ class EventoController extends Controller {
         return $this->atualizarEvento($request);
       }
 
+      /* die($_SESSION['anfitrioes']->getIdAnfitriao()); */
+
       $evento = new Evento(
         null,
-        $request['idAnfitriao'],
+        $_SESSION['anfitrioes']->getIdAnfitriao(),
         $request['Nome'],
         $request['Descricao'],
         $request['Data'],
@@ -55,7 +63,7 @@ class EventoController extends Controller {
       }
       $sqlService->desconectar();
 
-      $this->redirecionar('/');      
+      $this->redirecionar('/');    
     } catch(Exception $erro){
       echo $erro->getMessage();
     }
@@ -76,12 +84,25 @@ class EventoController extends Controller {
       $eventos = [];
       $contador = 0;
 
-      $operacao = 'read';
+      $operacao = 'find';
       $tabela = 'Evento';
 
-      $resposta = $sqlService->executar($operacao, $tabela, $colunas, $valores);
+      $resposta = $sqlService->executar($operacao, $tabela);
       while($linha = mysqli_fetch_assoc($resposta)){
-        $eventos[$contador] = $linha;
+        $evento = new Evento(
+          $linha['idEvento'],
+          $linha['idAnfitriao'],
+          $linha['Nome'],
+          $linha['Descricao'],
+          $linha['DataEvento'],
+          $linha['LocalEvento'],
+          $linha['Bairro'],
+          $linha['Rua'],
+          $linha['Categoria'],
+          $linha['Imagem']
+        );
+
+        $eventos[$contador] = $evento;
         $contador++;
       }
 
@@ -90,7 +111,7 @@ class EventoController extends Controller {
       }
       $sqlService->desconectar();
 
-      $this->renderizar('eventos', ['eventos' => $eventos]);
+      $this->renderizar('index', ['eventos' => $eventos]);
     } catch(Exception $erro){
       echo $erro->getMessage();
     }
@@ -111,13 +132,25 @@ class EventoController extends Controller {
 
       $resposta = $sqlService->executar($operacao, $tabela, $colunas, $valores);
       $linha = mysqli_fetch_assoc($resposta);
+      $evento = new Evento(
+        $linha['idEvento'],
+        $linha['idAnfitriao'],
+        $linha['Nome'],
+        $linha['Descricao'],
+        $linha['DataEvento'],
+        $linha['LocalEvento'],
+        $linha['Bairro'],
+        $linha['Rua'],
+        $linha['Categoria'],
+        $linha['Imagem']
+      );
 
       if(!$resposta){
         die("Deu errado: $resposta");
       }
       $sqlService->desconectar();
 
-      $this->renderizar('evento', ['evento' => $eventos]);
+      $this->renderizar('evento', ['evento' => $evento]);
     } catch(Exception $erro){
       echo $erro->getMessage();
     }

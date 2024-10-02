@@ -171,7 +171,8 @@ header {
   padding-right: 20px;
 }
 
-.card button {
+.card a {
+  text-align: center;
   background-color: #472528;
   height: 30px;
   border: none;
@@ -183,7 +184,7 @@ header {
   border-radius: 4px;
 }
 
-.card button:hover {
+.card a:hover {
   background-color: #137de8;
   cursor: pointer;
 }

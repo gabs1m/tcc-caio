@@ -49,6 +49,7 @@ class SQLService{
       
       case "findOne":
         $query = "SELECT * FROM $tabela WHERE $colunas[0] = '$valores[0]';";
+        /* die($query); */
         break;
 
       case "update":
