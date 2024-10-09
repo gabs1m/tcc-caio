@@ -1,5 +1,6 @@
+<h1><?=$evento->getNome()?></h1>
+
 <?php
-print_r($evento);
 
 if(isset($_SESSION[$_SESSION['tipo']])):
 ?>

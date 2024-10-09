@@ -79,6 +79,8 @@ class EventoController extends Controller {
 
       if($request['id']){
         return $this->buscarEventoPorId($request['id']);
+      } else if($request['nome']){
+        return $this->buscarEventoPorNome($request['nome']);
       }
 
       $eventos = [];
@@ -155,6 +157,8 @@ class EventoController extends Controller {
       echo $erro->getMessage();
     }
   }
+
+
 
   public function atualizarEvento($evento){
     try{

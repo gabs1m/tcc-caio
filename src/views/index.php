@@ -22,7 +22,6 @@ session_start();
 
     <?php if(isset($_SESSION[$_SESSION['tipo']])): ?>
     <br><a href="/logout">Sair</a><br>
-    <a href="/eventos/cadastro">Cadastrar evento</a>
     <?php endif; ?>
 
     <div class="corpo">

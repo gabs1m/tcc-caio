@@ -1,5 +1,7 @@
 <?php session_start() ?>
 
-<pre>
-<?php print_r($_SESSION['favoritos']) ?>
-</pre>
+<?php foreach($_SESSION['favoritos'] as $favorito): ?>
+<h2><?=$favorito->getNome()?></h2>
+<?php endforeach ?>
+
+<a href="/">Voltar</a>

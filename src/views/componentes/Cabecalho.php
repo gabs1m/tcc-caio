@@ -25,6 +25,10 @@
       <button class="lupa"><img src="/assets/imagens/lupa_icon.png" /></button>
     </div>
 
+    <?php if($_SESSION['tipo'] == 'anfitrioes'): ?>
+    <a href="/eventos/cadastro" style="color: darkred;">Cadastrar evento</a>
+    <?php endif ?>
+
     <div class="login-button">
       <button>
         <a href=<?=$_SESSION[$_SESSION['tipo']] ? "#" : "/usuarios/login"?>><img src="/assets/imagens/user_icon.png" /></a>

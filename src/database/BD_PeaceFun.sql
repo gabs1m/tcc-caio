@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS PeaceFun.Usuario(
    Genero VARCHAR(10) NOT NULL,
    Telefone VARCHAR(12) NOT NULL,
    Email VARCHAR(45) NOT NULL,
-   Senha VARCHAR(20) NOT NULL,
+   Senha VARCHAR(200) NOT NULL,
    Imagem VARCHAR(100) NULL DEFAULT NULL,
    PRIMARY KEY (idUsuario)
 );
@@ -23,7 +23,7 @@ INSERT INTO PeaceFun.Usuario SET Nome = 'Gabriel', DataNascimento = '2001-01-01'
   DocumentoIdentidade VARCHAR(11) NOT NULL,
   Telefone VARCHAR(12) NOT NULL,
   Email VARCHAR (45) NOT NULL,
-  Senha VARCHAR(20) NOT NULL,
+  Senha VARCHAR(200) NOT NULL,
   Imagem VARCHAR(100) NULL DEFAULT NULL,
   PRIMARY KEY (idAnfitriao)
 );
