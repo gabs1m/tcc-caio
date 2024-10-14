@@ -4,7 +4,7 @@
     <ul>
       <li><a href="#">Termos de uso</a></li>
       <li><a href="#">Política de privacidade</a></li>
-      <li><a href="#">Sobre nós</a></li>
+      <li><a href="/sobre">Sobre nós</a></li>
       <li><a href="#">Contato</a></li>
     </ul>
   </nav>

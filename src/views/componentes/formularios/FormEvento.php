@@ -2,7 +2,7 @@
 
 <form method="POST" enctype="multipart/form-data">
   <input type="hidden" name="id" value=<?=$id?>>
-  <input type="hidden" name="idAnfitriao" value=<?=$_SESSION['idAnfitriao']?>>
+  <input type="hidden" name="idAnfitriao" value=<?=$_SESSION['anfitrioes']->getIdAnfitriao()?>>
 
   <div class="campo">
     <label>Nome do evento</label>

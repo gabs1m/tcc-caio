@@ -34,7 +34,7 @@ class ControllerPrincipal extends Controller {
       $sqlService->desconectar();
 
       if($resposta == 0){
-        return false;
+        $this->redirecionar;
       } else if($linha['Senha'] !== $request['Senha']){
         die(var_dump($linha));
         return false;

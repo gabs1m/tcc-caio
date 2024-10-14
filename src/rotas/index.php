@@ -11,6 +11,8 @@ $roteador = new Roteador();
 
 $roteador->get('/', EventoController::class, 'buscarEventos');
 $roteador->get('/logout', ControllerPrincipal::class, 'logout');
+$roteador->get('/sobre', ViewController::class, 'sobre');
+$roteador->get('/perfil', ViewController::class, 'perfil');
 
 $roteador->get('/favoritos', ViewController::class, 'favoritos');
 $roteador->get('/favoritos/adicionar', ControllerPrincipal::class, 'adicionarFavorito');

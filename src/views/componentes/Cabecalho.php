@@ -31,7 +31,7 @@
 
     <div class="login-button">
       <button>
-        <a href=<?=$_SESSION[$_SESSION['tipo']] ? "#" : "/usuarios/login"?>><img src="/assets/imagens/user_icon.png" /></a>
+        <a href=<?=$_SESSION[$_SESSION['tipo']] ? "/perfil" : "/usuarios/login"?>><img src="/assets/imagens/user_icon.png" /></a>
       </button>
     </div>
 

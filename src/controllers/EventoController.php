@@ -76,6 +76,7 @@ class EventoController extends Controller {
 
       $sqlService->conectar();
       $request = $httpService->fetchGet();
+      $session = $httpService->fetchSession();
 
       if($request['id']){
         return $this->buscarEventoPorId($request['id']);
@@ -113,7 +114,10 @@ class EventoController extends Controller {
       }
       $sqlService->desconectar();
 
-      $this->renderizar('index', ['eventos' => $eventos]);
+      $this->renderizar('index', [
+        'eventos' => $eventos,
+        'tipo' => $session['tipo']
+      ]);
     } catch(Exception $erro){
       echo $erro->getMessage();
     }
