@@ -1,0 +1,167 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="perfil_anfitriao.css" />
+    <title>Menu Responsivo</title>
+  </head>
+
+  <body>
+    <header>
+      <nav class="nav-bar">
+        <div class="logo">
+          <img class="logo" src="imgs/logo.png" />
+        </div>
+        <div class="nav-list">
+          <ul>
+            <li class="nav-item"><a href="#" class="nav-link">Esporte</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Cultura</a></li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Tecnologia</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Gastronomia</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="icon-barra-de-pesquisa">
+          <input
+            type="search"
+            class="icon-barra-de-pesquisa"
+            placeholder="busque aqui"
+          />
+          <button class="lupa"><img src="imgs/lupa_icon.png" /></button>
+        </div>
+
+        <div class="login-button">
+          <button>
+            <a href="#"><img src="imgs/user_icon.png" /></a>
+          </button>
+        </div>
+
+        <div class="mobile-menu-icon">
+          <button onclick="menuShow()">
+            <img class="icon" src="imgs/icon_menu.png" />
+          </button>
+        </div>
+      </nav>
+
+      <div class="mobile-menu">
+        <ul>
+          <li class="nav-item"><a href="#" class="nav-link">Esporte</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Cultura</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Tecnologia</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Gastronomia</a></li>
+        </ul>
+
+        <div class="login-button">
+          <button><a href="#">Entrar</a></button>
+        </div>
+      </div>
+    </header>
+
+    <div class="perfil">
+      <div class="perfil_user">
+        <img src="imgs/perfil.png" alt="img_perfil" />
+        <img class="img_editar_foto" src="imgs/img_edit.png" alt="img_edita" />
+        <a href="#" class="editar">Editar</a>
+      </div>
+      <div class="nome_user">
+        <p>Bruna Dayane de Oliveira</p>
+        <hr class="linha-horizontal" />
+        <div class="eventos_salvos">
+          <a
+            href="https://brasilescola.uol.com.br/historiag/feudalismo.htm"
+            class="meu-link"
+          >
+            <img class="img_edita" src="imgs/icon_salvar.png" alt="img_edita" />
+            <p class="events_salvos">Eventos salvos</p>
+          </a>
+        </div>
+        <hr class="linha-horizontal" />
+        <div class="criando_events">
+          <a
+            href="https://brasilescola.uol.com.br/historiag/feudalismo.htm"
+            class="meu-link"
+          >
+            <img
+              class="mais_eventos"
+              src="imgs/mais_evento.png"
+              alt="tag_mais_eventos"
+            />
+            <p class="criar_eventos">Criar evento</p>
+          </a>
+        </div>
+        <hr class="linha-horizontal" />
+      </div>
+    </div>
+
+    <h2 class="eventos">Meus eventos</h2>
+    <div class="meu_evento">
+      <div class="caixinha">
+        <img class="img_capa" src="imgs/dog.png" alt="tag_meus_eventos" />
+        <div class="itens_editar_excluir">
+          <p>Feira de adoção</p>
+          <img src="imgs/lapis_editar.png" />
+          <img src="imgs/lixeira.png" />
+        </div>
+      </div>
+      <div class="caixinha">
+        <img class="img_capa" src="imgs/dog.png" alt="tag_meus_eventos" />
+        <div class="itens_editar_excluir">
+          <p>Feira de adoção</p>
+          <img src="imgs/lapis_editar.png" />
+          <img src="imgs/lixeira.png" />
+        </div>
+      </div>
+      <div class="caixinha">
+        <img class="img_capa" src="imgs/dog.png" alt="tag_meus_eventos" />
+        <div class="itens_editar_excluir">
+          <p>Feira de adoção</p>
+          <img src="imgs/lapis_editar.png" />
+          <img src="imgs/lixeira.png" />
+        </div>
+      </div>
+      <div class="caixinha">
+        <img class="img_capa" src="imgs/dog.png" alt="tag_meus_eventos" />
+        <div class="itens_editar_excluir">
+          <p>Feira de adoção</p>
+          <img src="imgs/lapis_editar.png" />
+          <img src="imgs/lixeira.png" />
+        </div>
+      </div>
+      <div class="caixinha">
+        <img class="img_capa" src="imgs/dog.png" alt="tag_meus_eventos" />
+        <div class="itens_editar_excluir">
+          <p>Feira de adoção</p>
+          <img src="imgs/lapis_editar.png" />
+          <img src="imgs/lixeira.png" />
+        </div>
+      </div>
+      <div class="caixinha">
+        <img class="img_capa" src="imgs/dog.png" alt="tag_meus_eventos" />
+        <div class="itens_editar_excluir">
+          <p>Feira de adoção</p>
+          <img src="imgs/lapis_editar.png" />
+          <img src="imgs/lixeira.png" />
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2023 - Todos os direitos reservados</p>
+      <nav>
+        <ul>
+          <li><a href="#">Termos de uso</a></li>
+          <li><a href="#">Política de privacidade</a></li>
+          <li><a href="sobre_nos.html">Sobre nós</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </nav>
+    </footer>
+
+    <script src="acao.js"></script>
+  </body>
+</html>
