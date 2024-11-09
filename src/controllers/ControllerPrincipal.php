@@ -115,7 +115,6 @@ class ControllerPrincipal extends Controller {
       if(!in_array($evento, $favoritos)){
         array_push($favoritos, $evento);
       }
-      
 
       $httpService->setSession([
         'favoritos' => $favoritos
