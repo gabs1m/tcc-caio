@@ -16,11 +16,11 @@ session_start();
   <body>
     <?php include 'componentes/Cabecalho.php'; ?>
 
-    <?php if(isset($_SESSION[$_SESSION['tipo']])): ?>
-    <h1>Bem vindo, <?=$_SESSION[$_SESSION['tipo']]->getNome()?></h1>
+    <?php if(array_search($tipo, $_SESSION) !== false): ?>
+    <h1>Bem vindo, <?=$_SESSION[$tipo]->getNome()?></h1>
     <?php endif; ?>
 
-    <?php if(isset($_SESSION[$_SESSION['tipo']])): ?>
+    <?php if(array_search($tipo, $_SESSION) !== false): ?>
     <br><a href="/logout">Sair</a><br>
     <?php endif; ?>
 

@@ -24,14 +24,14 @@
         placeholder="busque aqui" />
       <button class="lupa"><img src="/assets/imagens/lupa_icon.png" /></button>
     </div>
-
-    <?php if($_SESSION['tipo'] == 'anfitrioes'): ?>
+    
+    <?php if($tipo == 'anfitrioes'): ?>
     <a href="/eventos/cadastro" style="color: darkred;">Cadastrar evento</a>
     <?php endif ?>
 
     <div class="login-button">
       <button>
-        <a href=<?=$_SESSION[$_SESSION['tipo']] ? "/perfil" : "/usuarios/login"?>><img src="/assets/imagens/user_icon.png" /></a>
+        <a href=<?=count($_SESSION) > 0 ? "/perfil" : "/usuarios/login"?>><img src="/assets/imagens/user_icon.png" /></a>
       </button>
     </div>
 
