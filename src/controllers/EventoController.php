@@ -78,9 +78,13 @@ class EventoController extends Controller {
       $request = $httpService->fetchGet();
       $session = $httpService->fetchSession();
 
-      if(array_search('id', $request) !== false){
+      if(array_search('anfitrioes', $session) === false && array_search('usuarios', $session) === false){
+        $session['tipo'] = "";
+      }
+
+      if(array_key_exists('id', $request) !== false){
         return $this->buscarEventoPorId($request['id']);
-      } else if(array_search('nome', $request) !== false){
+      } else if(array_key_exists('nome', $request) !== false){
         return $this->buscarEventoPorNome($request['nome']);
       }
 
@@ -116,7 +120,7 @@ class EventoController extends Controller {
 
       $this->renderizar('index', [
         'eventos' => $eventos,
-        'tipo' => $session['tipo'] || ''
+        'tipo' => $session['tipo']
       ]);
     } catch(Exception $erro){
       echo $erro->getMessage();

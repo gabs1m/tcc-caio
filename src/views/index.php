@@ -16,7 +16,7 @@ session_start();
   <body>
     <?php include 'componentes/Cabecalho.php'; ?>
 
-    <?php if(array_search($tipo, $_SESSION) !== false): ?>
+    <?php if($tipo !== ""): ?>
     <h1>Bem vindo, <?=$_SESSION[$tipo]->getNome()?></h1>
     <?php endif; ?>
 
