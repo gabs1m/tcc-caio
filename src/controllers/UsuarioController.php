@@ -21,7 +21,6 @@ class UsuarioController extends Controller {
       }
 
       $usuario = new Usuario(
-        null,
         $request["Nome"],
         $request["DataNascimento"],
         $request["Cpf"],
@@ -29,6 +28,7 @@ class UsuarioController extends Controller {
         $request["Telefone"],
         $request["Email"],
         $request["Senha"],
+        null,
         ""
       );
 

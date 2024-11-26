@@ -33,7 +33,7 @@ class ControllerPrincipal extends Controller {
       $linha = mysqli_fetch_assoc($resposta);
       $sqlService->desconectar();
 
-      if($resposta == 0){
+      if(!$resposta){
         $this->redirecionar;
       } else if($linha['Senha'] !== $request['Senha']){
         die(var_dump($linha));
@@ -41,7 +41,6 @@ class ControllerPrincipal extends Controller {
       }
 
       $pessoa = $request['tipo'] == 'usuarios' ? new Usuario(
-        $linha['idUsuario'],
         $linha['Nome'],
         $linha['DataNascimento'],
         $linha['Cpf'],
@@ -49,6 +48,7 @@ class ControllerPrincipal extends Controller {
         $linha['Telefone'],
         $linha['Email'],
         $linha['Senha'],
+        $linha['idUsuario'],
         $linha['Imagem']
       ) : new Anfitriao(
         $linha['idAnfitriao'],
