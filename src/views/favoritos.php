@@ -1,6 +1,6 @@
 <?php session_start() ?>
 
-<?php die(var_dump($favoritos)) ?>
+<?php $favoritos = $_SESSION['favoritos']; ?>
 
 <?php foreach($favoritos as $favorito): ?>
 <h2><?=$favorito->getNome()?></h2>

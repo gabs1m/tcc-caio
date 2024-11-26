@@ -2,7 +2,7 @@
 
 <?php
 
-if(isset($_SESSION[$_SESSION['tipo']])):
+if(array_key_exists('tipo', $_SESSION)):
 ?>
 
 <br><br><a href="/favoritos/adicionar?id=<?=$evento->getIdEvento()?>">Adicionar evento aos favoritos</a>

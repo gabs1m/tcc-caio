@@ -15,12 +15,13 @@ class UsuarioController extends Controller {
 
       $sqlService->conectar();
       $request = $httpService->fetchRequest();
-
+      
       if($request['id']){
         return $this->atualizarUsuario($request);
       }
-
+      
       $usuario = new Usuario(
+        null,
         $request["Nome"],
         $request["DataNascimento"],
         $request["Cpf"],
@@ -28,7 +29,6 @@ class UsuarioController extends Controller {
         $request["Telefone"],
         $request["Email"],
         $request["Senha"],
-        null,
         ""
       );
 

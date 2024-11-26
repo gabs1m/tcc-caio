@@ -41,6 +41,7 @@ class ControllerPrincipal extends Controller {
       }
 
       $pessoa = $request['tipo'] == 'usuarios' ? new Usuario(
+        $linha['idUsuario'],
         $linha['Nome'],
         $linha['DataNascimento'],
         $linha['Cpf'],
@@ -48,7 +49,6 @@ class ControllerPrincipal extends Controller {
         $linha['Telefone'],
         $linha['Email'],
         $linha['Senha'],
-        $linha['idUsuario'],
         $linha['Imagem']
       ) : new Anfitriao(
         $linha['idAnfitriao'],
@@ -85,7 +85,7 @@ class ControllerPrincipal extends Controller {
       $request = $httpService->fetchGet();
       $session = $httpService->fetchSession();
 
-      if(isset($session['favoritos'])){
+      if(array_key_exists('favoritos', $session)){
         $favoritos = $session['favoritos'];
       } else {
         $favoritos = [];
@@ -112,7 +112,7 @@ class ControllerPrincipal extends Controller {
         $linha['Imagem']
       );
 
-      if(!in_array($evento, $favoritos)){
+      if(array_search($evento, $favoritos) == false){
         array_push($favoritos, $evento);
       }
 

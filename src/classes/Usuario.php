@@ -10,9 +10,9 @@ class Usuario extends Pessoa {
   private $dataNascimento;
   private $genero;
 
-  const colunas = ['Nome', 'DataNascimento', 'Cpf', 'Genero', 'Telefone', 'Email', 'Senha', 'idUsuario', 'Imagem'];
+  const colunas = ['idUsuario', 'Nome', 'DataNascimento', 'Cpf', 'Genero', 'Telefone', 'Email', 'Senha', 'Imagem'];
 
-  public function __construct($nome, $dataNascimento, $cpf, $genero, $telefone, $email, $senha, $idUsuario = null, $imagem = null){ 
+  public function __construct($idUsuario, $nome, $dataNascimento, $cpf, $genero, $telefone, $email, $senha, $imagem){ 
     $this->setIdUsuario($idUsuario);
     $this->setNome($nome);
     $this->setDataNascimento($dataNascimento);
